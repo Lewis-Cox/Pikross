@@ -1,7 +1,19 @@
 .header {
-  background-color: rgba(25,24,119,255);
-  color: rgba(255,229,0,255);  
-  padding: 10px 10px 10px 10px;
+  background-color: white;
+  height: 95px; 
 }
+.kirby{
+  float: left;
+  width: 10%;
+  height: 95px;
+  padding-right: 10%;
+}
+.logo{
+  float: left;
+  width: 50%;
+  height: 100px;
+  padding-left: 10px;
+}
+  
 
 
