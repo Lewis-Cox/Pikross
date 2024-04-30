@@ -1,13 +1,14 @@
 import React from 'react';
 import './Body.css';
+import Grid from  './Grid';
 
 function Body() {
   return (
-    <div className="Body">
-      <body>
-
-      </body>
-    </div>
+    <body>
+      <div className="mainGame">
+       <Grid/> 
+      </div>
+    </body>
   );
 }
 
