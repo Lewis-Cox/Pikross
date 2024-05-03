@@ -14,18 +14,36 @@ function handleClick(i){
 }
 function Grid(level) {
 var rows = [];
-  for(let i = 0; i < 30; i++){
-    rows.push(<div className="divRow"><Row rowNum={i}/> <br></br> </div>);
+  for(let x= 0; x < level.clueSize; x++){
+    rows.push(<div className="divRow"><clueRow  rowNum={x} clues={level.cluesX[x]} width = {level.width} clueSize={level.clueSize} ></clueRow> <br></br></div>);
+    }
+  for(let i = level.clueSize; i < (level.height+level.clueSize); i++){
+    rows.push(<div className="divRow"><Row  rowNum={i} clues={level.cluesY[i]} width = {level.width} clueSize= {level.clueSize} /> <br></br> </div>);
    }
   return (rows);
 }
 
-function Row(rowNum){
+function Row(rowNum,clues,width,clueSize){
  var squareRow = [];
- for(let j = 0; j < 30; j ++){
+ for(let i = 0; i < clueSize; i++){
+  squareRow.push(<p>{clues[i]}</p>); 
+ }  
+ for(let j = 0; j < width; j ++){
    squareRow.push(<Square value={' '} onSquareClick={() => handleClick(rowNum+j)} />);
   }
   return(squareRow);
 }
+
+function clueRow(rowNum,clues, width,clueSize){
+ var squareRow = [];
+ for(let i=0; i < clueSize; i++){
+  squareRow.push(<p className="fillerRow">" "</p>);
+  }
+ for(let j = 0; j < width; j ++){
+   squareRow.push(<p className="clueRow"> {clues[j]}</p>);
+  }
+  return(squareRow);
+}
+
 
 export default Grid;

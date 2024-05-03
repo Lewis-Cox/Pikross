@@ -111,7 +111,7 @@ const level1CluesY=[
 [' ',' ',' ',' ',' ','10']
 ];
 
-let level1= new Level(30,30,level1Layout,level1CluesX,level1CluesY,6);
+const level1= new Level(30,30,level1Layout,level1CluesX,level1CluesY,6);
 
 function Body() {
   return (
