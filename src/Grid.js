@@ -1,7 +1,7 @@
 import React from 'react';
 import './Grid.css';
 
-function Square({ value, onSquareClick }) {
+function Square({value,onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -9,10 +9,10 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-function handleClick(){
-return;
+function handleClick(i){
+  return;
 }
-function Grid() {
+function Grid(level) {
 var rows = [];
   for(let i = 0; i < 30; i++){
     rows.push(<div className="divRow"><Row rowNum={i}/> <br></br> </div>);
