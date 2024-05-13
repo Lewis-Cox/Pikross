@@ -1,16 +1,29 @@
 import React from 'react';
 import './Grid.css';
 
-function Square({value,onSquareClick }) {
+function Square({ value, onSquareClick }) {
+  const [isClicked, setIsClicked] = React.useState(false);
+
+  const clicked = () => {
+    setIsClicked(!isClicked);
+  };
+
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button
+      className="square"
+      onClick={() => {
+        clicked();
+        onSquareClick(); // Call the provided onClick handler
+      }}
+      style={{ backgroundColor: isClicked ? 'black' : 'white' }}
+    >
       {value}
     </button>
   );
 }
 
 function handleClick(i){
-  return;
+return;
 }
 function Grid({ level }) {
   var rows = [];
