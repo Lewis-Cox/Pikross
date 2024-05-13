@@ -12,21 +12,29 @@ function Square({value,onSquareClick }) {
 function handleClick(i){
   return;
 }
-function Grid(level) {
-var rows = [];
-  for(let x= 0; x < level.clueSize; x++){
-    rows.push(<div className="divRow"><clueRow  rowNum={x} clues={level.cluesX[x]} width = {level.width} clueSize={level.clueSize} /> <br></br></div>);
-    }
-  for(let i = level.clueSize; i < (level.height+level.clueSize); i++){
-    rows.push(<div className="divRow"><Row  rowNum={i} clues={level.cluesY[i]} width = {level.width} clueSize= {level.clueSize} /> <br></br> </div>);
-   }
-  return (rows);
+function Grid({ level }) {
+  var rows = [];
+  for (let x = 0; x < level.clueSize; x++) {
+    rows.push(
+      <div className="divRow">
+        <ClueRow rowNum={x} clues={[...level.cluesX[x]]} width={level.width} clueSize={level.clueSize} /> <br />
+      </div>
+    );
+  }
+  for (let i = 0; i < level.height; i++) {
+    rows.push(
+      <div className="divRow">
+        <Row rowNum={i+level.clueSize} clues={[...level.cluesY[i]]} width={level.width} clueSize={level.clueSize} /> <br />
+      </div>
+    );
+  }
+  return rows;
 }
 
 function Row({rowNum,clues,width,clueSize}){
  var squareRow = [];
  for(let i = 0; i < clueSize; i++){
-  squareRow.push(<p>{clues[i]}</p>); 
+   squareRow.push(<Square value={clues[i]} onSquareClick={null} />);
  }  
  for(let j = 0; j < width; j ++){
    squareRow.push(<Square value={' '} onSquareClick={() => handleClick(rowNum+j)} />);
@@ -34,13 +42,13 @@ function Row({rowNum,clues,width,clueSize}){
   return(squareRow);
 }
 
-function clueRow({rowNum,clues, width,clueSize}){
+function ClueRow({rowNum,clues, width,clueSize}){
  var squareRow = [];
  for(let i=0; i < clueSize; i++){
-  squareRow.push(<p className="fillerRow">" "</p>);
+   squareRow.push(<Square value={' '} onSquareClick={null} />);
   }
  for(let j = 0; j < width; j ++){
-   squareRow.push(<p className="clueRow"> {clues[j]}</p>);
+   squareRow.push(<Square value={clues[j]} onSquareClick={null} />);
   }
   return(squareRow);
 }

@@ -12,7 +12,8 @@ class Level {
     this.clueSize=clueSize;
   }
 }
-//30x30 pineapple
+{/*30x30 pineapple*/}
+{/*2d array countaining all the relevant data for the solved nonogram*/}
 const level1Layout = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1],
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1],
@@ -45,7 +46,7 @@ const level1Layout = [
 [1,1,1,2,2,2,2,2,1,2,2,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
-
+{/*2d array countaining all the clue data for x axis*/}
 const level1CluesX = [
 [' ',' ',' ',' ',' ','7'],
 [' ',' ',' ',' ',' ','10'],
@@ -77,7 +78,7 @@ const level1CluesX = [
 [' ',' ',' ',' ','3','2'],
 [' ',' ',' ',' ','2','1']
 ];
-
+{/*2d array countaining all the clue data for y axis*/}
 const level1CluesY=[
 [' ',' ',' ',' ',' ','1'],
 [' ',' ',' ',' ','1','1'],
@@ -110,13 +111,14 @@ const level1CluesY=[
 [' ',' ',' ','5','2','4'],
 [' ',' ',' ',' ',' ','10']
 ];
-
-const level1= new Level(30,30,level1Layout,level1CluesX,level1CluesY,6);
+{/*we create a level object to contain all the relevant data for this level*/}
+const level1= new Level(30,30,level1Layout,level1CluesY,level1CluesX,6);
 
 function Body() {
   return (
     <body>
       <div className="mainGame">
+      {/*we call pass the level data into the grid component*/}
        <Grid level={level1}/> 
       </div>
     </body>
