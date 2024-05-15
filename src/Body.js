@@ -2,6 +2,8 @@ import React from 'react';
 import './Body.css';
 import Grid from  './Grid';
 
+const [levelType, setLevelType] = React.useState(level1);
+
 class Level {
   constructor(height,width,layout,cluesY,cluesX,clueSize){
     this.height=height;
@@ -88,14 +90,29 @@ const level1CluesY=[
 [' ',' ',' ','5','2','4'],
 [' ',' ',' ',' ',' ','10']
 ];
-{/*we create a level object to contain all the relevant data for this level*/}
+
+function LevelButton({level,text}){
+  return(
+       <button onClick{() => {
+          setLevelType({level});
+          }}> {text} 
+          </button>
+
+          )
+   }
+
+//we create a level object to contain all the relevant data for this level
 const level1= new Level(30,30,level1Layout,level1CluesY,level1CluesX,6);
+const testlevel = new Level(1,1,[[1]],[[0]],[[0]],1);
 
 function Body() {
   return (
     <body>
       <div className="mainGame">
       {/*we call pass the level data into the grid component*/}
+      <LevelButton text={"test"} level= {testLevel}>
+      <LevelButton text={"1"} level= {level1}>
+          <br></br>
        <Grid level={level1}/> 
       </div>
     </body>

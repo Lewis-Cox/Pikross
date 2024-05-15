@@ -4,13 +4,12 @@
   content: '';
   display: table;
 }
-.square-clicked {
-  background: #000;
-  border: 1px solid #999;
+.clue {
+  background: rgba(242,216,225,255);
+  border: 1px solid rgba(242,216,225,255);
   float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
+  font-size: 15px;
+  line-height: 2px;
   height: 20px;
   margin-right: -1px;
   margin-top: -1px;
